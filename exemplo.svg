@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+
+  <!-- Definições: gradientes, filtros, símbolos, máscaras e clip-paths -->
+  <defs>
+    <!-- Gradiente linear -->
+    <linearGradient id="gradBG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c6ff"/>
+      <stop offset="100%" stop-color="#0072ff"/>
+    </linearGradient>
+
+    <!-- Gradiente radial -->
+    <radialGradient id="gradCircle" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff0"/>
+      <stop offset="100%" stop-color="#f00"/>
+    </radialGradient>
+
+    <!-- Filtro de sombra -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="5" dy="5" stdDeviation="3" flood-color="black"/>
+    </filter>
+
+    <!-- Símbolo reutilizável: estrela -->
+    <symbol id="star" viewBox="0 0 100 100">
+      <polygon points="50,0 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35" fill="gold"/>
+    </symbol>
+
+    <!-- Máscara circular -->
+    <mask id="circleMask">
+      <rect width="100%" height="100%" fill="white"/>
+      <circle cx="400" cy="300" r="50" fill="black"/>
+    </mask>
+
+    <!-- Clip-path triangular -->
+    <clipPath id="triangleClip">
+      <polygon points="300,50 400,200 200,200"/>
+    </clipPath>
+  </defs>
+
+  <!-- Fundo com gradiente linear -->
+  <rect width="100%" height="100%" fill="url(#gradBG)"/>
+
+  <!-- Círculo animado com gradiente radial e sombra -->
+  <circle cx="100" cy="100" r="40" fill="url(#gradCircle)" stroke="orange" stroke-width="3" filter="url(#shadow)">
+    <animate attributeName="r" values="40;60;40" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Texto central animado -->
+  <text x="250" y="50" font-family="Verdana" font-size="24" fill="white" text-anchor="middle" alignment-baseline="middle">
+    SVG Mega Manual
+    <animate attributeName="fill" values="white;yellow;white" dur="4s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- Retângulo rotativo -->
+  <rect x="50" y="250" width="100" height="50" fill="purple" stroke="black" stroke-width="2">
+    <animateTransform attributeName="transform" type="rotate" from="0 100 275" to="360 100 275" dur="6s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Triângulo com clip-path -->
+  <rect x="200" y="50" width="200" height="150" fill="green" clip-path="url(#triangleClip)"/>
+
+  <!-- Máscara aplicada -->
+  <rect x="350" y="250" width="100" height="100" fill="red" mask="url(#circleMask)"/>
+
+  <!-- Uso de símbolo estrela -->
+  <use href="#star" x="50" y="50" width="50" height="50"/>
+  <use href="#star" x="150" y="100" width="100" height="100"/>
+  <use href="#star" x="350" y="50" width="75" height="75"/>
+
+  <!-- Caminho complexo animado -->
+  <path d="M50 350 C150 300, 350 400, 450 350" fill="transparent" stroke="cyan" stroke-width="3">
+    <animate attributeName="stroke" values="cyan;magenta;cyan" dur="5s" repeatCount="indefinite"/>
+  </path>
+
+</svg>
