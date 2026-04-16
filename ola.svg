@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="400" height="300" 
+     viewBox="0 0 400 300">
+
+  <!-- Definições: gradientes e filtros -->
+  <defs>
+    <!-- Gradiente linear -->
+    <linearGradient id="gradBackground" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c6ff"/>
+      <stop offset="100%" stop-color="#0072ff"/>
+    </linearGradient>
+
+    <!-- Filtro de sombra -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="4" dy="4" stdDeviation="3" flood-color="black"/>
+    </filter>
+  </defs>
+
+  <!-- Fundo do SVG -->
+  <rect width="400" height="300" fill="url(#gradBackground)"/>
+
+  <!-- Círculo interativo -->
+  <circle cx="100" cy="150" r="40" fill="yellow" stroke="orange" stroke-width="4"
+          filter="url(#shadow)" 
+          onclick="alert('Você clicou no círculo!')">
+    <!-- Animação do raio do círculo -->
+    <animate attributeName="r" from="40" to="60" dur="2s" repeatCount="indefinite" 
+             begin="0s" />
+  </circle>
+
+  <!-- Texto central -->
+  <text x="200" y="150" font-family="Verdana" font-size="24" fill="white" text-anchor="middle" alignment-baseline="middle">
+    SVG é incrível!
+    <!-- Animação de cor do texto -->
+    <animate attributeName="fill" values="white;yellow;white" dur="3s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- Caminho complexo (triângulo animado) -->
+  <path d="M300 50 L350 150 L250 150 Z" fill="red" stroke="darkred" stroke-width="3">
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" 
+                      from="0 300 100" to="360 300 100" dur="5s" repeatCount="indefinite"/>
+  </path>
+
+</svg>
